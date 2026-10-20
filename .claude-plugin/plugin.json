@@ -1,0 +1,22 @@
+{
+  "name": "dephx-pitch-deck",
+  "description": "Make exceptional pitch decks with your AI agent: one audience and one decision per deck, every claim traced to evidence, designed to the slide, animated product scenes, and checked so it survives PDF, PowerPoint and Google Slides",
+  "version": "0.1.0",
+  "author": {
+    "name": "Adedamola Daniel",
+    "email": "adedamolaniel@gmail.com",
+    "url": "https://github.com/ephraimd"
+  },
+  "homepage": "https://github.com/ephraimd/dephx-pitch-deck",
+  "repository": "https://github.com/ephraimd/dephx-pitch-deck",
+  "license": "MIT",
+  "keywords": [
+    "codex",
+    "agent-skills",
+    "pitch-deck",
+    "investor-deck",
+    "sales-deck",
+    "presentation",
+    "slides"
+  ]
+}

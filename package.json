@@ -1,0 +1,36 @@
+{
+  "name": "dephx-pitch-deck",
+  "version": "0.1.0",
+  "description": "Make exceptional pitch decks with your AI agent: one audience and one decision per deck, every claim traced to evidence, designed to the slide, animated product scenes, and checked so it survives PDF, PowerPoint and Google Slides",
+  "type": "module",
+  "license": "MIT",
+  "author": {
+    "name": "Adedamola Daniel",
+    "email": "adedamolaniel@gmail.com",
+    "url": "https://github.com/ephraimd"
+  },
+  "homepage": "https://github.com/ephraimd/dephx-pitch-deck",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ephraimd/dephx-pitch-deck.git"
+  },
+  "keywords": [
+    "claude-code-plugin",
+    "codex",
+    "pi-package",
+    "agent-skills",
+    "pitch-deck",
+    "investor-deck",
+    "sales-deck",
+    "presentation",
+    "slides"
+  ],
+  "files": ["skills", "template", "scripts", "tools", "install.sh", "README.md", "LICENSE"],
+  "scripts": {
+    "sync": "node scripts/sync-manifests.mjs",
+    "test": "bash test/smoke.sh"
+  },
+  "pi": {
+    "skills": ["./skills"]
+  }
+}

@@ -1,0 +1,139 @@
+/*
+  Deck theme. Replace the tokens below with the product's own brand before writing slides:
+  colour roles, fonts and radius. Components further down only use these variables.
+*/
+:root {
+  /* Light surface */
+  --bg: #f7f8f6;
+  --surface: #ffffff;
+  --ink: #15201c;
+  --muted: #4d5b56;
+  --line: #dfe4e1;
+  --accent: #0f766e;
+  --accent-ink: #ffffff;
+  --accent-soft: #e3f3f1;
+  --accent-soft-ink: #0b5a54;
+  --accent-muted: #e6f6f3; /* secondary text on the accent slide, 4.5:1 or better */
+  --accent-surface: #0b5a54; /* cards on the accent slide */
+  --accent-line: #2f8f87;
+
+  /* Dark surface */
+  --dark-bg: #0e1715;
+  --dark-surface: #17231f;
+  --dark-ink: #e8efec;
+  --dark-muted: #a3b3ad;
+  --dark-line: #2a3934;
+  --dark-accent: #5eead4;
+
+  /* Type */
+  --font-display: "Space Grotesk", Arial, sans-serif;
+  --font-body: "Inter", Arial, sans-serif;
+  --radius: 12px;
+}
+
+/* Slide frame: 1920 x 1080, 128px margins, footer band reserved */
+.slide {
+  position: absolute;
+  inset: 0;
+  width: 1920px;
+  height: 1080px;
+  box-sizing: border-box;
+  padding: 128px 128px 160px;
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+  overflow: hidden;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 28px;
+  line-height: 1.4;
+}
+.slide * { box-sizing: border-box; margin: 0; }
+.slide.dark {
+  --bg: var(--dark-bg);
+  --surface: var(--dark-surface);
+  --ink: var(--dark-ink);
+  --muted: var(--dark-muted);
+  --line: var(--dark-line);
+  --accent-text: var(--dark-accent);
+}
+.slide.accent {
+  --bg: var(--accent);
+  --ink: var(--accent-ink);
+  --muted: var(--accent-muted);
+  --surface: var(--accent-surface);
+  --line: var(--accent-line);
+  --accent-text: var(--accent-ink);
+}
+.slide.center { justify-content: center; }
+.slide.spread { justify-content: space-between; } /* heading top, statement bottom, no dead third */
+.slide.split { display: grid; grid-template-columns: 1fr 1fr; gap: 96px; align-items: center; }
+
+/* Type scale: 120 / 72 / 44 / 32 / 24 */
+.eyebrow { font-size: 24px; font-weight: 600; letter-spacing: 4px; text-transform: uppercase; color: var(--accent-text, var(--accent)); }
+.display { font-family: var(--font-display); font-size: 120px; font-weight: 700; line-height: 1.02; }
+.title { font-family: var(--font-display); font-size: 72px; font-weight: 700; line-height: 1.1; max-width: 1500px; }
+.statement { font-size: 44px; font-weight: 600; line-height: 1.25; max-width: 1500px; }
+.lead { font-size: 32px; line-height: 1.45; color: var(--muted); max-width: 1300px; }
+.small { font-size: 24px; color: var(--muted); }
+.head { display: flex; flex-direction: column; gap: 16px; }
+.hl { color: var(--accent-text, var(--accent)); }
+
+/* Footer band */
+.footer { position: absolute; left: 128px; right: 128px; bottom: 64px; font-size: 24px; color: var(--muted); }
+
+/* Cards */
+.cards { display: grid; grid-template-columns: repeat(var(--cols, 3), 1fr); gap: 24px; }
+.card {
+  display: flex; flex-direction: column; gap: 12px;
+  background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius);
+  padding: 36px 32px;
+}
+.card h3 { font-size: 32px; font-weight: 600; line-height: 1.25; }
+.card p { font-size: 24px; line-height: 1.5; color: var(--muted); }
+.card.is-key { border: 2px solid var(--accent-text, var(--accent)); }
+.card.is-future { border: 2px dashed var(--line); }
+
+/* Status pills: always words, never colour alone */
+.pill { align-self: flex-start; font-size: 24px; font-weight: 600; padding: 4px 16px; border-radius: 999px; line-height: 1.4; }
+.pill.live { background: var(--accent); color: var(--accent-ink); }
+.pill.early, .pill.future { background: var(--accent-soft); color: var(--accent-soft-ink); }
+
+/* Check list */
+.checks { list-style: none; padding: 0; display: flex; flex-direction: column; gap: 24px; max-width: 860px; }
+.checks li { position: relative; padding-left: 60px; font-size: 28px; line-height: 1.4; }
+.checks li::before {
+  content: ""; position: absolute; left: 0; top: 2px; width: 36px; height: 36px; border-radius: 50%;
+  background: var(--accent-text, var(--accent));
+  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 0a12 12 0 1 0 0 24 12 12 0 0 0 0-24zm-1.6 17.2-5-5 1.7-1.7 3.3 3.3 7-7 1.7 1.7z'/%3E%3C/svg%3E") center / contain no-repeat;
+          mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 0a12 12 0 1 0 0 24 12 12 0 0 0 0-24zm-1.6 17.2-5-5 1.7-1.7 3.3 3.3 7-7 1.7 1.7z'/%3E%3C/svg%3E") center / contain no-repeat;
+}
+.checks b { font-weight: 700; }
+
+/* Big numbers */
+.tiles { display: grid; grid-template-columns: repeat(var(--cols, 4), 1fr); gap: 24px; }
+.tile { display: flex; flex-direction: column; gap: 12px; border-top: 2px solid var(--accent-text, var(--accent)); padding-top: 32px; }
+.tile .num { font-family: var(--font-display); font-size: 96px; font-weight: 700; line-height: 1; font-variant-numeric: tabular-nums; }
+.tile .label { font-size: 24px; line-height: 1.4; color: var(--muted); }
+
+/* Flow of steps */
+.flow { display: flex; align-items: center; gap: 16px; }
+.flow .card { flex: 1; }
+.flow .arrow { flex: none; width: 48px; height: 28px; background: var(--accent-text, var(--accent));
+  clip-path: polygon(0 35%, 60% 35%, 60% 0, 100% 50%, 60% 100%, 60% 65%, 0 65%); }
+
+/* Tables */
+.table { width: 100%; border-collapse: collapse; font-size: 28px; }
+.table th { text-align: left; font-weight: 600; color: var(--muted); padding: 14px 16px; border-bottom: 2px solid var(--line); }
+.table td { padding: 14px 16px; border-bottom: 1px solid var(--line); }
+.table tr.is-us { background: var(--accent-soft); color: var(--accent-soft-ink); font-weight: 700; }
+
+/* Media */
+.mark { width: 64px; height: 64px; object-fit: contain; }
+.brand { display: flex; align-items: center; gap: 20px; font-family: var(--font-display); font-size: 44px; font-weight: 700; }
+.shot { border-radius: var(--radius); border: 1px solid var(--line); object-fit: contain; background: var(--surface); }
+iframe.scene { position: absolute; border: 0; background: transparent; }
+
+/* Speaker notes never show on the slide */
+.slide .notes { display: none; }

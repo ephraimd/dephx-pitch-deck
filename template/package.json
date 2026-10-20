@@ -1,0 +1,16 @@
+{
+  "name": "pitch-deck",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "qa": "node scripts/build.mjs && node scripts/qa.mjs",
+    "render": "node scripts/build.mjs && node scripts/render.mjs",
+    "pptx": "node scripts/pptx.mjs",
+    "export": "npm run qa && npm run render && npm run pptx"
+  },
+  "devDependencies": {
+    "playwright": "^1.49.1",
+    "pptxgenjs": "^3.12.0"
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "name": "dephx-pitch-deck",
+  "description": "Make exceptional pitch decks with your AI agent: one audience and one decision per deck, every claim traced to evidence, designed to the slide, animated product scenes, and checked so it survives PDF, PowerPoint and Google Slides",
+  "owner": {
+    "name": "Adedamola Daniel",
+    "email": "adedamolaniel@gmail.com",
+    "url": "https://github.com/ephraimd"
+  },
+  "plugins": [
+    {
+      "name": "dephx-pitch-deck",
+      "source": "./",
+      "description": "Make exceptional pitch decks with your AI agent: one audience and one decision per deck, every claim traced to evidence, designed to the slide, animated product scenes, and checked so it survives PDF, PowerPoint and Google Slides",
+      "version": "0.1.0"
+    }
+  ]
+}
